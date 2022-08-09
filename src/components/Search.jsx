@@ -13,7 +13,7 @@ export default function Appts() {
   const [search, setSearch] = useState('');
 
   return (
-    <div>Search
+    <div>Search:
       <input
         type="text"
         id="condition"

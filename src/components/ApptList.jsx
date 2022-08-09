@@ -11,6 +11,7 @@ export default function ApptList({ setAppt }) {
     axios.get('/appts')
       .then((results) => {
         setAppts(results.data);
+        console.log('appts: ', results.data);
       })
       .catch((err) => {
         console.log('Error getting appts: ', err);

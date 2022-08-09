@@ -11,31 +11,46 @@ export default function ApptForm({ triggered, setTriggered, appts, setAppts }) {
   const submitAppt = function(e) {
     e.preventDefault();
     // turns question string into array with separate questions
-    let questionArray = questions.split('\n');
     let data = {
       'date': date,
       'dr': dr,
       'location': location,
-      'questions': questionArray
+      'questions': questions
     };
     axios.post('/appts', data)
       .then((appt) => {
+        // closes form
         setTriggered(false);
+        // get all appts
         axios.get('/appts')
           .then((results) => {
             setAppts(results.data);
+            // resets form values
+            setDate(Date());
+            setDr('');
+            setLocation('');
+            setQuestions('');
           })
           .catch((err) => {
             console.log('Error getting appts: ', err);
           });
       })
       .catch((err) => {
+        // does not close form or reset values if error
         console.log('Error creating appointment: ', err);
       });
   };
 
-  return (triggered) ? (
+  const handleCancel = function() {
+    setTriggered(false);
+    // resets form values
+    setDate(Date());
+    setDr('');
+    setLocation('');
+    setQuestions('');
+  };
 
+  return (triggered) ? (
     <div className="ApptForm">
       <FormBackground>
         <FormView>
@@ -78,7 +93,7 @@ export default function ApptForm({ triggered, setTriggered, appts, setAppts }) {
               />
             </div>
             <button type="submit">Save and Close</button>
-            <button onClick={() => setTriggered(false)}>Cancel</button>
+            <button onClick={() => handleCancel()}>Cancel</button>
           </form>
         </FormView>
       </FormBackground>

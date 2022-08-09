@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import './styles/App.css';
-import ApptList from './ApptList.jsx';
-import ConditionList from './ConditionList.jsx';
 import logo from './styles/logo.png';
+import ApptList from './ApptList';
+import ApptDetails from './ApptDetails';
 
 export default function App() {
   const [selectedAppt, setAppt] = useState({});
@@ -15,14 +15,7 @@ export default function App() {
       </div>
       <div className="App-body">
         <ApptList setAppt={setAppt}/>
-        {selectedAppt.dr !== undefined ?
-          <div>Selected Appt: {selectedAppt.dr}
-          <ConditionList selectedAppt={selectedAppt}/>
-          </div>
-          :
-          <div>Select an appointment</div>
-        }
-
+        <ApptDetails selectedAppt={selectedAppt} setAppt={setAppt}/>
       </div>
     </div>
   );

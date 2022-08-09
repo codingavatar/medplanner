@@ -16,7 +16,7 @@ const apptSchema = new mongoose.Schema({
   },
   dr: String,
   location: String,
-  questions: [String]
+  questions: String
 });
 
 const conditionSchema = new mongoose.Schema({

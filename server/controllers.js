@@ -41,3 +41,20 @@ exports.postAppt = (req, res) => {
       res.status(400).send(err);
     });
 };
+
+exports.updateQuestions = (req, res) => {
+  let apptId = req.params.apptId;
+  let questions = req.body;
+  console.log('questions to update: ', questions);
+  let options = {
+    new: true
+  }
+  Appt.findByIdAndUpdate(apptId, questions, options)
+    .then((questions) => {
+      res.status(201).send(questions);
+    })
+    .catch((err) => {
+      console.log('Error updating questions: ', err);
+      res.status(400).send(err);
+    });
+};

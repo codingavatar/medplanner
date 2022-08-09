@@ -15,6 +15,8 @@ app.use('/appts', router.get('/:apptId', controllers.getConditions));
 
 app.use('/appts', router.post('', controllers.postAppt));
 
+app.use('/appts', router.put('/:apptId', controllers.updateQuestions));
+
 const port = process.env.SERVER_PORT || 3000;
 app.listen(port);
 console.log(`Server listening at http://localhost:${port}`);

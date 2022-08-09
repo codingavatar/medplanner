@@ -14,11 +14,13 @@ exports.getAppts = (req, res) => {
     });
 };
 
-// get one appt with conditions
-exports.getOneApptAndConditions = (req, res) => {
+// get conditions of given apptId
+exports.getConditions = (req, res) => {
   let apptId = req.params.apptId;
-  Appt.findById(apptId).populate('conditions')
+  Condition.find({ appts: apptId })
+    .exec()
     .then((results) => {
+      console.log('results: ', results);
       res.status(200).send(results);
     })
     .catch((err) => {

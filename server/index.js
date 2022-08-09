@@ -11,7 +11,7 @@ const router = express.Router();
 
 app.use('/appts', router.get('', controllers.getAppts));
 
-app.use('/appts', router.get('/:apptId', controllers.getOneApptAndConditions));
+app.use('/appts', router.get('/:apptId', controllers.getConditions));
 
 app.use('/appts', router.post('', controllers.postAppt));
 

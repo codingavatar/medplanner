@@ -1,0 +1,21 @@
+.App {
+  background-color: lightblue;
+  color: darkslategrey;
+  text-align: left;
+  padding: 50px;
+}
+
+.App-header {
+  background-color: white;
+  text-align: left;
+  padding: 5px;
+}
+
+.App-logo {
+  height: 50px;
+  pointer-events: none;
+}
+
+.App-body {
+  padding: 5px;
+}

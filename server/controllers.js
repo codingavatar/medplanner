@@ -44,10 +44,8 @@ exports.postAppt = (req, res) => {
 
 // updates questions of given apptId
 exports.updateQuestions = (req, res) => {
-  let apptId = Number(req.params.apptId);
+  let apptId = req.params.apptId;
   let questions = req.body;
-  questions.conditionId = Number(questions.conditionId);
-  console.log('questions to update: ', questions);
   let options = {
     new: true
   };

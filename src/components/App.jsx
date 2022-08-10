@@ -1,11 +1,23 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './styles/App.css';
 import logo from './styles/logo.png';
 import ApptList from './ApptList';
 import ApptDetails from './ApptDetails';
 
 export default function App() {
-  const [selectedAppt, setAppt] = useState({});
+  const [selectedAppt, setSelectedAppt] = useState({});
+  const [appts, setAppts] = useState([]);
+
+  useEffect(() => {
+    axios.get('/appts')
+      .then((results) => {
+        setAppts(results.data);
+      })
+      .catch((err) => {
+        console.log('Error getting appts: ', err);
+      });
+  }, []);
 
   return (
     <div className="App">
@@ -14,8 +26,8 @@ export default function App() {
         &nbsp;Your medical planner
       </div>
       <div className="App-body">
-        <ApptList setAppt={setAppt}/>
-        <ApptDetails selectedAppt={selectedAppt} setAppt={setAppt}/>
+        <ApptList appts={appts} setAppts={setAppts} setSelectedAppt={setSelectedAppt}/>
+        <ApptDetails appts={appts} selectedAppt={selectedAppt} setSelectedAppt={setSelectedAppt}/>
       </div>
     </div>
   );

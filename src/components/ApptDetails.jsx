@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ConditionList from './ConditionList.jsx';
 
-export default function ApptDetails({ selectedAppt, setAppt }) {
+export default function ApptDetails({ appts, selectedAppt, setAppt }) {
   const [date, setDate] = useState('');
   const [questions, setQuestions] = useState('');
 
@@ -58,7 +58,7 @@ export default function ApptDetails({ selectedAppt, setAppt }) {
           />
           <br/>
           <button onClick={(e) => handleSave(e)}>Save Questions</button>
-          <ConditionList selectedAppt={selectedAppt}/>
+          <ConditionList appts={appts} selectedAppt={selectedAppt}/>
         </div>
         :
         <div>Select an appointment</div>

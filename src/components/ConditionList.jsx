@@ -3,7 +3,7 @@ import axios from 'axios';
 import Search from './Search.jsx';
 import Condition from './Condition.jsx';
 
-export default function ConditionList({ selectedAppt }) {
+export default function ConditionList({ appts, selectedAppt }) {
   const [conditions, setConditions] = useState([]);
 
   useEffect(() => {
@@ -21,12 +21,17 @@ export default function ConditionList({ selectedAppt }) {
     <div>
       <h3>Condition List</h3>
       { conditions.length > 0 ?
-        conditions.map((condition) =>
-          <Condition key={condition._id} condition={condition}/>
-        )
+        conditions.map((condition) => {
+          return (
+            <Condition key={condition._id}
+              appts={appts}
+              selectedAppt={selectedAppt}
+              condition={condition}
+            />);
+        })
         : <div>Search for conditions to add info</div>
       }
-      <Search setConditions={setConditions}/>
+      <Search setConditions={setConditions} appts={appts} selectedAppt={selectedAppt}/>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Appt({ appt, setAppt }) {
+export default function Appt({ appt, setSelectedAppt }) {
   // options to display date
   let options = {
     weekday: 'long',
@@ -13,7 +13,7 @@ export default function Appt({ appt, setAppt }) {
   let date = new Date(appt.date).toLocaleString('en-US', options);
 
   return (
-    <div className="Appt" onClick={() => {setAppt(appt)}}>
+    <div className="Appt" onClick={() => {setSelectedAppt(appt)}}>
       {date} with Dr. {appt.dr}
     </div>
   )

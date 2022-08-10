@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ConditionList from './ConditionList.jsx';
 
-export default function ApptDetails({ appts, selectedAppt, setAppt }) {
+export default function ApptDetails({ appts, selectedAppt, setSelectedAppt }) {
   const [date, setDate] = useState('');
   const [questions, setQuestions] = useState('');
 
@@ -20,11 +20,9 @@ export default function ApptDetails({ appts, selectedAppt, setAppt }) {
       setDate(new Date(selectedAppt.date).toLocaleString('en-US', options));
     }
     setQuestions(selectedAppt.questions || '');
-    console.log('previous saved questions: ', selectedAppt.questions);
   }, [selectedAppt]);
 
   const handleSave = function(e) {
-    console.log('questions: ', questions);
     let data = {
       'questions': questions
     };
@@ -32,7 +30,7 @@ export default function ApptDetails({ appts, selectedAppt, setAppt }) {
       .then((results) => {
         let apptCopy = selectedAppt;
         apptCopy.questions = questions;
-        setAppt(apptCopy);
+        setSelectedAppt(apptCopy);
         console.log('saved questions');
       })
       .catch((err) => {
@@ -50,6 +48,8 @@ export default function ApptDetails({ appts, selectedAppt, setAppt }) {
           Dr. {selectedAppt.dr}
           <br/>
           Location: {selectedAppt.location}
+          <br/>
+          Questions:
           <br/>
           <textarea
             placeholder="Enter any questions about this appointment"

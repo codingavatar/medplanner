@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import Appt from './Appt.jsx';
 import ApptForm from './ApptForm.jsx';
 

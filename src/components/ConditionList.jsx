@@ -9,7 +9,6 @@ export default function ConditionList({ appts, selectedAppt }) {
   useEffect(() => {
     axios.get(`appts/${selectedAppt._id}`)
       .then((results) => {
-        console.log('conditions: ', results.data);
         setConditions(results.data);
       })
       .catch((err) => {

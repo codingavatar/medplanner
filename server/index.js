@@ -9,13 +9,17 @@ app.use(express.json());
 
 const router = express.Router();
 
-app.use('/appts', router.get('', controllers.getAppts));
+app.use('/', router);
 
-app.use('/appts', router.get('/:apptId', controllers.getConditions));
+router.get('/appts', controllers.getAppts);
 
-app.use('/appts', router.post('', controllers.postAppt));
+router.get('/appts/:apptId', controllers.getConditions);
 
-app.use('/appts', router.put('/:apptId', controllers.updateQuestions));
+router.post('/appts', controllers.postAppt);
+
+router.put('/appts/:apptId', controllers.updateQuestions);
+
+router.put('/conditions/:conditionId', controllers.updateCondition);
 
 const port = process.env.SERVER_PORT || 3000;
 app.listen(port);

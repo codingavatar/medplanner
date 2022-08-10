@@ -42,19 +42,46 @@ exports.postAppt = (req, res) => {
     });
 };
 
+// updates questions of given apptId
 exports.updateQuestions = (req, res) => {
-  let apptId = req.params.apptId;
+  let apptId = Number(req.params.apptId);
   let questions = req.body;
+  questions.conditionId = Number(questions.conditionId);
   console.log('questions to update: ', questions);
   let options = {
     new: true
-  }
+  };
   Appt.findByIdAndUpdate(apptId, questions, options)
     .then((questions) => {
       res.status(201).send(questions);
     })
     .catch((err) => {
       console.log('Error updating questions: ', err);
+      res.status(400).send(err);
+    });
+};
+
+// updates condition or creates new one with given conditionId
+exports.updateCondition = (req, res) => {
+  let conditionId = Number(req.params.conditionId);
+  let condition = req.body;
+  condition.conditionId = conditionId;
+
+  let filter = {
+    'conditionId': conditionId
+  };
+  let options = {
+    new: true,
+    upsert: true
+  };
+  console.log('filter: ', filter);
+  Condition.findOneAndUpdate(filter, condition, options)
+    .then((condition) => {
+      console.log('new condition: ', condition);
+      res.status(201).send(condition);
+    })
+    .catch((err) => {
+      console.log('Error updating condition: ', err);
       res.status(400).send(err);
     });
 };

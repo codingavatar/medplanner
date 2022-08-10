@@ -20,11 +20,12 @@ const apptSchema = new mongoose.Schema({
 });
 
 const conditionSchema = new mongoose.Schema({
-  condition: {
+  conditionId: Number,
+  commonName: {
     type: String,
     required: true
   },
-  synonyms: [String],
+  synonyms: String,
   notes: String,
   appts: [{
     type: mongoose.Schema.Types.ObjectId,

@@ -27,6 +27,7 @@ const conditionSchema = new mongoose.Schema({
   },
   synonyms: String,
   notes: String,
+  links: String,
   appts: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Appt',

@@ -15,7 +15,6 @@
     "url": "https://github.com/codingavatar/medplanner"
   },
   "dependencies": {
-    "autocomplete-lhc": "^18.4.0",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",

@@ -1,5 +1,5 @@
 # medplanner #
-[Summary](#summary) | [Problem](#problem) | [Solution](#solution) | [Get Started](#how-to-get-started) | [Contributor](#contributor)
+[Summary](#summary) | [Problem](#problem) | [Solution](#solution) | [Get Started](#how-to-get-started) | [Demo](#demo) | [Contributor](#contributor)
 
 ## Your go-to medical planner ##
   > All of your questions and notes in one place
@@ -34,6 +34,9 @@ Start medplanner
 ```
 npm run start
 ```
+
+## Demo ##
+
 
 ## Contributor ##
 <table>

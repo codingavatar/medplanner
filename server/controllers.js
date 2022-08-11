@@ -41,6 +41,19 @@ exports.postAppt = (req, res) => {
     });
 };
 
+// deletes appt with given apptId
+exports.deleteAppt = (req, res) => {
+  let apptId = req.params.apptId;
+  Appt.findByIdAndDelete(apptId)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log('Error deleting appt: ', err);
+      res.status(400).send(err);
+    });
+}
+
 // updates questions of given apptId
 exports.updateQuestions = (req, res) => {
   let apptId = req.params.apptId;

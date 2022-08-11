@@ -17,6 +17,8 @@ router.get('/appts/:apptId', controllers.getConditions);
 
 router.post('/appts', controllers.postAppt);
 
+router.delete('/appts/:apptId', controllers.deleteAppt);
+
 router.put('/appts/:apptId', controllers.updateQuestions);
 
 router.put('/conditions/:conditionId', controllers.updateCondition);

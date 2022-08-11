@@ -29,10 +29,11 @@ export default function Search({setConditions, appts, selectedAppt, newlyAdded, 
       setCount(5);
       tempCount = 5;
     }
-    // if nothing searched, reset searchResults and not perform search
+    // if nothing searched, reset searchResults and do not perform search
     if (search === '') {
       setSearchResults([]);
     } else {
+      // query to API gets common name, synonyms, medline.gov link
       axiosInstance.get(`search?terms=${search}&maxList=${tempCount}&df=consumer_name,synonyms,info_link_data`)
         .then((results) => {
           if (results.data[3].length < results.data[0]) {
@@ -65,7 +66,7 @@ export default function Search({setConditions, appts, selectedAppt, newlyAdded, 
       {searchResults.length > 0 ?
         <div className="searchList">
           {searchResults.map((conditionArray, index) => {
-            // condition is array so need to construct it into an object
+            // results is array so need to construct it into an object
             let condition = {};
             condition.conditionId = searchIds[index];
             condition.commonName = conditionArray[0];
@@ -89,8 +90,6 @@ export default function Search({setConditions, appts, selectedAppt, newlyAdded, 
         </div>
       : undefined
       }
-
     </div>
-
   );
 }

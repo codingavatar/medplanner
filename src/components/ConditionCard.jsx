@@ -4,6 +4,7 @@ import axios from 'axios';
 export default function ConditionCard({ appts, selectedAppt, condition, triggered, setTriggered, newlyAdded, setNewlyAdded }) {
   const [notes, setNotes] = useState('');
 
+  // updates notes field with selected appt's questions
   useEffect(() => {
     if (condition.notes.length > 0) {
       setNotes(condition.notes);
@@ -12,6 +13,7 @@ export default function ConditionCard({ appts, selectedAppt, condition, triggere
     }
   }, [condition]);
 
+  // adds condition to appts
   const addCondition = function(e) {
     e.preventDefault();
     let data = condition;
@@ -40,8 +42,8 @@ export default function ConditionCard({ appts, selectedAppt, condition, triggere
     <div className="background">
       <div className="popup">
         <h3>{condition.commonName}</h3>
-        <a href={condition.links.split(',')[0]} target="_blank" rel="noreferrer">Medline.gov link: {condition.links.split(',')[1]} </a>
-        {/* <iframe src={condition.links} title="medline link with information" sandbox="allow-scripts allow-modal"/> */}
+        <a href={condition.links.split(',')[0]} target="_blank" rel="noreferrer">
+          Medline.gov link: {condition.links.split(',')[1]} </a>
         <br/>
         Synonyms: {condition.synonyms.length > 0 ? condition.synonyms : 'none'}
         <br/>

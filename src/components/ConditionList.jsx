@@ -7,6 +7,7 @@ export default function ConditionList({ appts, selectedAppt }) {
   const [conditions, setConditions] = useState([]);
   const [newlyAdded, setNewlyAdded] = useState(true);
 
+  // gets conditions for selected appt
   useEffect(() => {
     axios.get(`appts/${selectedAppt._id}`)
       .then((results) => {
@@ -31,7 +32,7 @@ export default function ConditionList({ appts, selectedAppt }) {
               setNewlyAdded={setNewlyAdded}
             />);
         })
-        : <div>Search for conditions to add info</div>
+        : <div>↓ Search for conditions to add info</div>
       }
       <Search setConditions={setConditions}
         appts={appts}

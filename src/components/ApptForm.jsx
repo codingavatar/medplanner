@@ -9,7 +9,6 @@ export default function ApptForm({ triggered, setTriggered, appts, setAppts }) {
 
   const submitAppt = function(e) {
     e.preventDefault();
-    // turns question string into array with separate questions
     let data = {
       'date': date,
       'dr': dr,
@@ -60,7 +59,6 @@ export default function ApptForm({ triggered, setTriggered, appts, setAppts }) {
               <input
                 type="datetime-local"
                 required
-                // min={date.toDateString()}
                 value={date}
                 onChange={(e) => {setDate(e.target.value)}}
               />

@@ -6,9 +6,10 @@ import ApptList from './ApptList';
 import ApptDetails from './ApptDetails';
 
 export default function App() {
-  const [selectedAppt, setSelectedAppt] = useState({});
   const [appts, setAppts] = useState([]);
+  const [selectedAppt, setSelectedAppt] = useState({});
 
+  // gets appts from database
   useEffect(() => {
     axios.get('/appts')
       .then((results) => {
@@ -27,7 +28,7 @@ export default function App() {
       </div>
       <div className="App-body">
         <ApptList appts={appts} setAppts={setAppts} setSelectedAppt={setSelectedAppt}/>
-        <ApptDetails appts={appts} selectedAppt={selectedAppt} setSelectedAppt={setSelectedAppt}/>
+        <ApptDetails appts={appts} setAppts={setAppts} selectedAppt={selectedAppt} setSelectedAppt={setSelectedAppt}/>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ top: 0;
 left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   position: fixed;
   display: flex;
   justify-content: center;
@@ -20,8 +20,8 @@ export const FormView = styled.div`
   overflow-y: auto;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
-  color: #000;
   position:relative;
   z-index: 10;
   border-radius: 10px;
+  background-color: #add8e6;
 `;

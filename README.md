@@ -37,15 +37,19 @@ npm run start
 
 ## Demo ##
 Add an appointment:
+
 ![](https://github.com/codingavatar/medplanner/blob/main/demo/add-appt.gif)
 
 Search medical conditions: 
+
 ![](https://github.com/codingavatar/medplanner/blob/main/demo/search-conditions.gif)
 
 Add a medical condition: 
+
 ![](https://github.com/codingavatar/medplanner/blob/main/demo/add-condition.gif)
 
 Delete an appointment: 
+
 ![](https://github.com/codingavatar/medplanner/blob/main/demo/delete-appt.gif)
 
 ## Contributor ##

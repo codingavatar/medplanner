@@ -20,7 +20,6 @@ exports.getConditions = (req, res) => {
   Condition.find({ appts: apptId })
     .exec()
     .then((results) => {
-      console.log('results: ', results);
       res.status(200).send(results);
     })
     .catch((err) => {
@@ -72,10 +71,8 @@ exports.updateCondition = (req, res) => {
     new: true,
     upsert: true
   };
-  console.log('filter: ', filter);
   Condition.findOneAndUpdate(filter, condition, options)
     .then((condition) => {
-      console.log('new condition: ', condition);
       res.status(201).send(condition);
     })
     .catch((err) => {

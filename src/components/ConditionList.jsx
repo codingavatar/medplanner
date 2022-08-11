@@ -5,6 +5,7 @@ import Condition from './Condition.jsx';
 
 export default function ConditionList({ appts, selectedAppt }) {
   const [conditions, setConditions] = useState([]);
+  const [newlyAdded, setNewlyAdded] = useState(true);
 
   useEffect(() => {
     axios.get(`appts/${selectedAppt._id}`)
@@ -14,7 +15,7 @@ export default function ConditionList({ appts, selectedAppt }) {
       .catch((err) => {
         console.log('Error getting conditions: ', err);
       });
-  }, [selectedAppt]);
+  }, [selectedAppt, newlyAdded]);
 
   return (
     <div>
@@ -26,11 +27,17 @@ export default function ConditionList({ appts, selectedAppt }) {
               appts={appts}
               selectedAppt={selectedAppt}
               condition={condition}
+              newlyAdded={newlyAdded}
+              setNewlyAdded={setNewlyAdded}
             />);
         })
         : <div>Search for conditions to add info</div>
       }
-      <Search setConditions={setConditions} appts={appts} selectedAppt={selectedAppt}/>
+      <Search setConditions={setConditions}
+        appts={appts}
+        selectedAppt={selectedAppt}
+        newlyAdded={newlyAdded}
+        setNewlyAdded={setNewlyAdded}/>
     </div>
   );
 }

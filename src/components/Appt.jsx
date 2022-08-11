@@ -14,7 +14,11 @@ export default function Appt({ appt, setSelectedAppt }) {
 
   return (
     <div className="Appt" onClick={() => {setSelectedAppt(appt)}}>
-      {date} with Dr. {appt.dr}
+      <div className="Appt-date-dr">
+        <div>{date}</div>
+        &nbsp; with Dr. {appt.dr}
+      </div>
+      <br/>
     </div>
   )
 }

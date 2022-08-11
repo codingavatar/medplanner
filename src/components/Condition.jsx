@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ConditionCard from './ConditionCard';
 
-export default function Condition({ appts, selectedAppt, condition }) {
+export default function Condition({ appts, selectedAppt, condition, newlyAdded, setNewlyAdded }) {
   const [expandView, setExpandView] = useState(false);
 
   return (
@@ -16,8 +16,9 @@ export default function Condition({ appts, selectedAppt, condition }) {
         condition={condition}
         triggered={expandView}
         setTriggered={setExpandView}
+        newlyAdded={newlyAdded}
+        setNewlyAdded={setNewlyAdded}
       />
-      <br/>
     </div>
   )
 }

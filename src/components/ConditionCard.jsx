@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FormBackground, FormView } from './styles/FormView.styled';
 
-export default function ConditionCard({ appts, selectedAppt, condition, triggered, setTriggered }) {
+export default function ConditionCard({ appts, selectedAppt, condition, triggered, setTriggered, newlyAdded, setNewlyAdded }) {
   const [notes, setNotes] = useState('');
 
   useEffect(() => {
@@ -30,6 +30,7 @@ export default function ConditionCard({ appts, selectedAppt, condition, triggere
       .then((results) => {
         console.log('Updated condition: ', results.data);
         setTriggered(false);
+        setNewlyAdded(!newlyAdded);
       })
       .catch((err) => {
         console.log('Error updating condition: ', err);
@@ -56,11 +57,23 @@ export default function ConditionCard({ appts, selectedAppt, condition, triggere
         <br/>
         Appointments:
         {appts!== undefined && appts.map((appt) => {
-          let date = new Date(appt.date).toLocaleString('en-US');
+          let options = {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric'
+          };
+          let date = new Date(appt.date).toLocaleString('en-US', options);
+
           return (
             <div>
               <label>
-              <input type="checkbox" name="appt-selected" value={appt._id}/>
+              <input type="checkbox"
+                name="appt-selected"
+                value={appt._id}
+                defaultChecked={condition.appts !== undefined ? condition.appts.indexOf(appt._id) !== -1 : false}
+              />
               {date} with Dr. {appt.dr}</label>
             </div>
           );}

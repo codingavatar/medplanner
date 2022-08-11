@@ -1,17 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ConditionCard from './Condition.jsx';
+// import Def from 'autocomplete-lhc';
 
-export default function Search({setConditions, appts, selectedAppt}) {
-  // useEffect(() => {
-  //   const jqueryFile = document.createElement('jqueryScript');
-  //   jqueryFile.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js';
-  //   document.body.appendChild(jqueryFile);
-
-  //   const autocompleteFile = document.createElement('autocompleteScript');
-  //   autocompleteFile.src = 'https://clinicaltables.nlm.nih.gov/autocomplete-lhc-versions/17.0.3/autocomplete-lhc.min.js';
-  //   document.body.appendChild(autocompleteFile);
-  // });
+export default function Search({setConditions, appts, selectedAppt, newlyAdded, setNewlyAdded}) {
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searchIds, setSearchIds] = useState([]);
@@ -86,7 +78,10 @@ export default function Search({setConditions, appts, selectedAppt}) {
                 key={condition.conditionId}
                 appts={appts}
                 selectedAppt={selectedAppt}
-                condition={condition}/>
+                condition={condition}
+                newlyAdded={newlyAdded}
+                setNewlyAdded={setNewlyAdded}
+              />
             );
           })}
           {hasMore &&
@@ -95,6 +90,8 @@ export default function Search({setConditions, appts, selectedAppt}) {
         </div>
       : undefined
       }
+
     </div>
+
   );
 }

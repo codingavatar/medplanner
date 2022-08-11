@@ -23,7 +23,7 @@ export default function App() {
     <div className="App">
       <div className="App-header">
         <img className="App-logo" src={logo} alt='logo'/>
-        &nbsp;Your medical planner
+        <span className="App-name">&nbsp;Your medical planner</span>
       </div>
       <div className="App-body">
         <ApptList appts={appts} setAppts={setAppts} setSelectedAppt={setSelectedAppt}/>

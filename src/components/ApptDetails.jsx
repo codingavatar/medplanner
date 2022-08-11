@@ -39,7 +39,7 @@ export default function ApptDetails({ appts, selectedAppt, setSelectedAppt }) {
   };
 
   return (
-    <div className="App-details">
+    <div className="ApptDetails">
       <h2>Appointment Details</h2>
       {selectedAppt.dr !== undefined ?
         <div>

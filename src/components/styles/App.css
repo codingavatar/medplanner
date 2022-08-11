@@ -39,6 +39,10 @@
   flex-basis: 30%;
 }
 
+.ApptList-list {
+  padding: 10px 0 0 0;
+}
+
 .ApptDetails {
   flex-basis: 60%;
 }
@@ -154,7 +158,7 @@ button:hover {
 textarea {
   height: 4em;
   overflow: auto;
-  width: 75%;
+  width: 70%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -162,4 +166,12 @@ textarea {
   border-radius: 7px;
   border: #5DADE2 solid 2px;
   padding: 5px;
+}
+
+.delete-appt-button {
+  background: #1F618D;
+}
+
+.delete-appt-button:hover {
+  background: #CB4335;
 }

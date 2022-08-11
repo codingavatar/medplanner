@@ -50,7 +50,6 @@ export default function ApptDetails({ appts, setAppts, selectedAppt, setSelected
         .then(() => {
           // remove current appt locally
           let apptsCopy = appts.filter((appt) => appt._id !== selectedAppt._id);
-          console.log('removed appt: ', apptsCopy);
           setAppts(apptsCopy);
           setSelectedAppt({});
         })

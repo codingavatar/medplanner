@@ -7,7 +7,7 @@ export default function ConditionList({ appts, selectedAppt }) {
   const [conditions, setConditions] = useState([]);
   const [newlyAdded, setNewlyAdded] = useState(true);
 
-  // gets conditions for selected appt
+  // gets conditions for selected appt and if new condition gets added
   useEffect(() => {
     axios.get(`appts/${selectedAppt._id}`)
       .then((results) => {

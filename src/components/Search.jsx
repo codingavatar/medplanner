@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ConditionCard from './Condition.jsx';
-// import Def from 'autocomplete-lhc';
 
 export default function Search({setConditions, appts, selectedAppt, newlyAdded, setNewlyAdded}) {
   const [search, setSearch] = useState('');
@@ -17,7 +16,7 @@ export default function Search({setConditions, appts, selectedAppt, newlyAdded, 
     // reset search results
     setSearch('');
     setSearchResults([]);
-  }, [selectedAppt])
+  }, [selectedAppt]);
 
   const handleSearch = function(e, getMore) {
     e.preventDefault();
@@ -51,18 +50,18 @@ export default function Search({setConditions, appts, selectedAppt, newlyAdded, 
   };
 
   return (
-    <div>
+    <div className="Search">
+      <br/>
       <form onSubmit={(e) => {handleSearch(e, false)}}>
         <input
           type="text"
-          id="condition"
+          id="condition-search"
           placeholder="Condition"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           />
         <button type="submit">Search new condition</button>
       </form>
-      <br/>
       {searchResults.length > 0 ?
         <div className="searchList">
           {searchResults.map((conditionArray, index) => {

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { FormBackground, FormView } from './styles/FormView.styled';
 
 export default function ApptForm({ triggered, setTriggered, appts, setAppts }) {
   const [date, setDate] = useState(Date());
@@ -52,8 +51,8 @@ export default function ApptForm({ triggered, setTriggered, appts, setAppts }) {
 
   return (triggered) ? (
     <div className="ApptForm">
-      <FormBackground>
-        <FormView>
+      <div className="background">
+        <div className="popup">
           <h3>Enter a new appointment</h3>
           <form onSubmit={(e) => submitAppt(e)}>
             <div>
@@ -77,7 +76,8 @@ export default function ApptForm({ triggered, setTriggered, appts, setAppts }) {
             </div>
             <div>
               <label>Location: </label>
-              <input
+              <textarea
+                className="location-input"
                 type="text"
                 autoComplete="off"
                 value={location}
@@ -93,10 +93,11 @@ export default function ApptForm({ triggered, setTriggered, appts, setAppts }) {
               />
             </div>
             <button type="submit">Save and Close</button>
+            &nbsp;
             <button onClick={() => handleCancel()}>Cancel</button>
           </form>
-        </FormView>
-      </FormBackground>
+        </div>
+      </div>
     </div>
   ) : undefined;
 }

@@ -7,7 +7,7 @@ export default function Condition({ appts, selectedAppt, condition, newlyAdded, 
   return (
     <div className="Condition">
       <div className="Condition-small" onClick={() => setExpandView(true)}>
-        {condition.commonName}
+        + {condition.commonName}
       </div>
       <ConditionCard
         key={condition.conditionId}

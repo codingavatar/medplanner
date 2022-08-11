@@ -40,6 +40,7 @@ export default function ApptDetails({ appts, selectedAppt, setSelectedAppt }) {
 
   return (
     <div className="ApptDetails">
+      <br/>
       <h2>Appointment Details</h2>
       {selectedAppt.dr !== undefined ?
         <div>

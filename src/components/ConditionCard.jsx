@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FormBackground, FormView } from './styles/FormView.styled';
 
 export default function ConditionCard({ appts, selectedAppt, condition, triggered, setTriggered, newlyAdded, setNewlyAdded }) {
   const [notes, setNotes] = useState('');
@@ -38,11 +37,10 @@ export default function ConditionCard({ appts, selectedAppt, condition, triggere
   };
 
   return (triggered) ? (
-    <FormBackground>
-      <FormView>
-        {condition.commonName}
-        <br/>
-        <a href={condition.links.split(',')[0]} target="_blank" rel="noreferrer">Medline.gov link: {condition.links.split(',')[1]}</a>
+    <div className="background">
+      <div className="popup">
+        <h3>{condition.commonName}</h3>
+        <a href={condition.links.split(',')[0]} target="_blank" rel="noreferrer">Medline.gov link: {condition.links.split(',')[1]} </a>
         {/* <iframe src={condition.links} title="medline link with information" sandbox="allow-scripts allow-modal"/> */}
         <br/>
         Synonyms: {condition.synonyms.length > 0 ? condition.synonyms : 'none'}
@@ -67,7 +65,7 @@ export default function ConditionCard({ appts, selectedAppt, condition, triggere
           let date = new Date(appt.date).toLocaleString('en-US', options);
 
           return (
-            <div>
+            <div className="appt-checkboxes">
               <label>
               <input type="checkbox"
                 name="appt-selected"
@@ -80,10 +78,10 @@ export default function ConditionCard({ appts, selectedAppt, condition, triggere
         )}
         <br/>
         <button onClick={(e) => addCondition(e)}>Save to appointment</button>
-        <br/>
+        &nbsp;
         <button onClick={() => setTriggered(false)}>Cancel</button>
         <br/>
-      </FormView>
-    </FormBackground>
+      </div>
+    </div>
   ) : null;
 }

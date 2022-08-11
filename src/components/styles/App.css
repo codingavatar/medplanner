@@ -10,6 +10,7 @@
 .App-header {
   background-color: white;
   padding: 5px;
+  margin: 0 0 20px 0;
 }
 
 .App-name {
@@ -52,6 +53,89 @@
   font-weight: bold;
 }
 
+.Condition-small {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 5px 0px;
+}
+
+.Condition-small:hover {
+  cursor: pointer;
+  color: #483d8b;
+  font-weight: bold;
+  box-shadow: 0px 0px 30px 2px #D7BDE2;
+}
+
+#condition-search {
+  height: 1.1em;
+  padding: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  border-radius: 7px;
+  border: #5DADE2 solid 2px;
+}
+
+.appt-checkboxes {
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+
+a {
+  color: #1F618D;
+}
+
+.background {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  margin: 10px 10px 10px 10px;
+  padding: 5%;
+  width: 75%;
+  height: 75%;
+  overflow-y: auto;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  position:relative;
+  z-index: 10;
+  border-radius: 10px;
+  background-color: #add8e6;
+}
+
+.ApptForm label {
+  width: 250px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.ApptForm input {
+  width: 250px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  font-size: 0.9em;
+  border-radius: 7px;
+  border: #5DADE2 solid 2px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.location-input {
+  height: 2.1em;
+  width: 250px;
+  margin: 5px;
+}
+
 button{
   border: none;
   border-radius: 0.5em;
@@ -70,8 +154,12 @@ button:hover {
 textarea {
   height: 4em;
   overflow: auto;
-  width: 50%;
+  width: 75%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  font-size: 0.9em;
+  border-radius: 7px;
+  border: #5DADE2 solid 2px;
+  padding: 5px;
 }

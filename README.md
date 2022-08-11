@@ -1,4 +1,6 @@
 # medplanner #
+[Summary](#summary) | [Problem](#problem) | [Solution](#solution) | [Get Started](#how-to-get-started) | [Contributor](#contributor)
+
 ## Your go-to medical planner ##
   > All of your questions and notes in one place
 
@@ -33,3 +35,23 @@ Start medplanner
 npm run start
 ```
 
+## Contributor ##
+<table>
+  <tr>
+    <th>Jessica Chen</th>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/codingavatar">
+        <img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://www.linkedin.com/in/jessica-chen-md/">
+        <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+      </a>
+    </td>
+  </tr>
+</table>
